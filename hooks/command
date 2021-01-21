@@ -109,6 +109,12 @@ if plugin_read_list_into_result BUILDKITE_PLUGIN_DOCKER_TMPFS ; then
   done
 fi
 
+if plugin_read_list_into_result BUILDKITE_PLUGIN_DOCKER_STORAGE_OPTS ; then
+  for arg in "${result[@]}" ; do
+    args+=( "--storage-opts" "${arg}" )
+  done
+fi
+
 workdir=''
 
 if [[ -n "${BUILDKITE_PLUGIN_DOCKER_WORKDIR:-}" ]] || [[ "${BUILDKITE_PLUGIN_DOCKER_MOUNT_CHECKOUT:-on}" =~ ^(true|on|1)$ ]] ; then
