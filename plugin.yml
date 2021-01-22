@@ -1,6 +1,6 @@
-name: bennettytest
+name: Docker
 description: Runs your build steps in Docker containers
-author: https://github.com/bennetty
+author: https://github.com/buildkite
 requirements:
   - docker
 configuration:
@@ -64,8 +64,6 @@ configuration:
     init:
       type: boolean
     sysctls:
-      type: array
-    storage-opts:
       type: array
   required:
     - image
